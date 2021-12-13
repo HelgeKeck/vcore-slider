@@ -4,10 +4,12 @@ A simple camera slider for the Rat Rig V-Core 3d printer
 ## Example Video 1
 [![Video Example](https://img.youtube.com/vi/kqTLXj1yt5o/0.jpg)](https://www.youtube.com/watch?v=kqTLXj1yt5o)    
 
-## Example Uberlapse Video 1
-[![Video Example](https://img.youtube.com/vi/H-ifAT6w3YU/0.jpg)](https://www.youtube.com/watch?v=H-ifAT6w3YU)    
+# Uberlapse
 V-Core Slider is Uberlapse compatible and lets you create timelapses of your 3d prints.   
 Uberlapse: https://github.com/HelgeKeck/uberlapse/   
+
+## Example Uberlapse Video 1
+[![Video Example](https://img.youtube.com/vi/H-ifAT6w3YU/0.jpg)](https://www.youtube.com/watch?v=H-ifAT6w3YU)    
 
 # Installation
 
