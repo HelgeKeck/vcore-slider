@@ -43,7 +43,7 @@ function create_folders {
         echo -e "Try:\nUsage: ${0} -c /path/to/klipper_config\nExiting..."
         exit 1
     fi
-    if [ -d "${VCS_BOARD_DIR}" ]; then
+    if [ -d "${VCS_ROOT_DIR}" ]; then
         echo "Creating vcore slider folder..."
         mkdir "${VCS_BOARD_DIR}"
         mkdir "${VCS_PRINTER_DIR}"
