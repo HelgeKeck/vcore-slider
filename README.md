@@ -14,7 +14,7 @@ bash ~/vcore-slider/install.sh
 ```ini
 # moonraker.conf
 
-[update_manager vcore_-_slider]
+[update_manager vcore-slider]
 type: git_repo
 primary_branch: main
 path: ~/vcore-slider
