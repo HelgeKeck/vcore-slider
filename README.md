@@ -9,7 +9,7 @@ V-Core Slider is Uberlapse compatible and lets you create timelapses of your 3d 
 Uberlapse: https://github.com/HelgeKeck/uberlapse/   
 
 ## Example Uberlapse Video
-[![Video Example](https://img.youtube.com/vi/H-ifAT6w3YU/0.jpg)](https://www.youtube.com/watch?v=H-ifAT6w3YU)    
+[![Video Example](https://img.youtube.com/vi/hdajsakze78/0.jpg)](https://www.youtube.com/watch?v=hdajsakze78)    
 
 # Installation
 
