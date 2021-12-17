@@ -30,7 +30,6 @@ SRCDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/ && pwd )"
 KLIPPER_CONFIG_DIR="${HOME}/klipper_config"
 VCS_ROOT_DIR="${HOME}/klipper_config/vcore_slider"
 VCS_BOARD_DIR="${HOME}/klipper_config/vcore_slider/board"
-VCS_PRINTER_DIR="${HOME}/klipper_config/vcore_slider/printer"
 VCS_STEPPER_DIR="${HOME}/klipper_config/vcore_slider/stepper"
 
 function stop_klipper {
@@ -60,7 +59,6 @@ function create_folders {
     if [ -d "${VCS_ROOT_DIR}" ]; then
         echo "Creating vcore slider folder..."
         mkdir "${VCS_BOARD_DIR}"
-        mkdir "${VCS_PRINTER_DIR}"
         mkdir "${VCS_STEPPER_DIR}"
     else
         echo -e "ERROR: ${VCS_BOARD_DIR} not found."
@@ -73,17 +71,17 @@ function link_macros {
     if [ -d "${KLIPPER_CONFIG_DIR}" ]; then
         if [ -d "${VCS_ROOT_DIR}" ]; then
             echo "Linking uberlapse macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/uberlapse.cfg" "${VCS_ROOT_DIR}/uberlapse.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/uberlapse.cfg" "${VCS_ROOT_DIR}/uberlapse.cfg"
             echo "Linking config macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/config.cfg" "${VCS_ROOT_DIR}/config.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/config.cfg" "${VCS_ROOT_DIR}/config.cfg"
             echo "Linking macros macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/macros.cfg" "${VCS_ROOT_DIR}/macros.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/macros.cfg" "${VCS_ROOT_DIR}/macros.cfg"
             echo "Linking skr_mini_e3v2 macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/board/skr_mini_e3v2.cfg" "${VCS_BOARD_DIR}/skr_mini_e3v2.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/board/skr_mini_e3v2.cfg" "${VCS_BOARD_DIR}/skr_mini_e3v2.cfg"
             echo "Linking pan macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/stepper/pan.cfg" "${VCS_STEPPER_DIR}/pan.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/stepper/pan.cfg" "${VCS_STEPPER_DIR}/pan.cfg"
             echo "Linking slider macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/stepper/slider.cfg" "${VCS_STEPPER_DIR}/slider.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/stepper/slider.cfg" "${VCS_STEPPER_DIR}/slider.cfg"
         else
             echo -e "ERROR: ${UBERLAPSE_CONFIG_DIR} not found."
             echo -e "Try:\nUsage: ${0} -c /path/to/klipper_config\nExiting..."
