@@ -33,6 +33,20 @@ VCS_BOARD_DIR="${HOME}/klipper_config/vcore_slider/board"
 VCS_PRINTER_DIR="${HOME}/klipper_config/vcore_slider/printer"
 VCS_STEPPER_DIR="${HOME}/klipper_config/vcore_slider/stepper"
 
+function stop_klipper {
+    if [ "$(sudo systemctl list-units --full -all -t service --no-legend | grep -F "klipper.service")" ]; then
+        echo "Klipper service found! Stopping during Install."
+        sudo systemctl stop klipper
+    else
+        echo "Klipper service not found, please install Klipper first"
+        exit 1
+    fi
+}
+
+function start_klipper {
+    echo "Restarting Klipper service!"
+    sudo systemctl restart klipper
+}
 
 function create_folders {
     if [ -d "${KLIPPER_CONFIG_DIR}" ]; then
@@ -66,12 +80,6 @@ function link_macros {
             ln -sf "${SRCDIR}/klipper_macro/vcore_slider/macros.cfg" "${VCS_ROOT_DIR}/macros.cfg"
             echo "Linking skr_mini_e3v2 macro file..."
             ln -sf "${SRCDIR}/klipper_macro/vcore_slider/board/skr_mini_e3v2.cfg" "${VCS_BOARD_DIR}/skr_mini_e3v2.cfg"
-            echo "Linking vcore_300 macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/printer/vcore_300.cfg" "${VCS_PRINTER_DIR}/vcore_300.cfg"
-            echo "Linking vcore_400 macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/printer/vcore_400.cfg" "${VCS_PRINTER_DIR}/vcore_400.cfg"
-            echo "Linking vcore_500 macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/vcore_slider/printer/vcore_500.cfg" "${VCS_PRINTER_DIR}/vcore_500.cfg"
             echo "Linking pan macro file..."
             ln -sf "${SRCDIR}/klipper_macro/vcore_slider/stepper/pan.cfg" "${VCS_STEPPER_DIR}/pan.cfg"
             echo "Linking slider macro file..."
@@ -108,8 +116,10 @@ while getopts "c:h" arg; do
 done
 
 # Run steps
+stop_klipper
 create_folders
 link_macros
+start_klipper
 
 # If something checks status of install
 exit 0
