@@ -32,6 +32,6 @@ origin: https://github.com/HelgeKeck/vcore-slider.git
 ```ini
 # printer.cfg
 
-[include vcore-slider/config.cfg]
+[include vcore_slider/config.cfg]
 
 ```
