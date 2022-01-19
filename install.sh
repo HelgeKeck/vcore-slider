@@ -48,6 +48,9 @@ function start_klipper {
 }
 
 function create_folders {
+    if [ -d "${VCS_ROOT_DIR}" ]; then
+        rm -rf "${VCS_ROOT_DIR}" 
+    fi
     if [ -d "${KLIPPER_CONFIG_DIR}" ]; then
         echo "Creating vcore slider folder..."
         mkdir "${VCS_ROOT_DIR}"
@@ -77,7 +80,7 @@ function link_macros {
             echo "Linking macros macro file..."
             ln -sf "${SRCDIR}/klipper_macro/macros.cfg" "${VCS_ROOT_DIR}/macros.cfg"
             echo "Linking skr_mini_e3v2 macro file..."
-            ln -sf "${SRCDIR}/klipper_macro/board/skr_mini_e3v2.cfg" "${VCS_BOARD_DIR}/skr_mini_e3v2.cfg"
+            ln -sf "${SRCDIR}/klipper_macro/board/skr_mini_e3_v2.1.cfg" "${VCS_BOARD_DIR}/skr_mini_e3_v2.1.cfg"
             echo "Linking pan macro file..."
             ln -sf "${SRCDIR}/klipper_macro/stepper/pan.cfg" "${VCS_STEPPER_DIR}/pan.cfg"
             echo "Linking slider macro file..."
